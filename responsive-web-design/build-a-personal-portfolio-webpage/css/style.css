@@ -3,11 +3,13 @@
   --primary_1: #a8dadcff;
   --primary_2: #457b9dff;
   --primary_3: #8ae37cff;
+
   --secondary_1: #1d3557ff;
   --secondary_2: #f1faeeff;
-
+  --secondary_3: #8b7bcd;
+  
   --accent_1: #e63946ff;
-  --accent_2: #FFE98B;
+  --accent_2: #ffe98b;
 }
 
 html {
@@ -36,6 +38,7 @@ body {
   left: 0;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   background-color: var(--primary_2);
   color: var(--secondary_2);
@@ -49,9 +52,27 @@ body {
   padding: 1em;
 }
 
-#navbar > a:hover {
-  background-color: var(--accent_1);
-  color: var(--secondary_2);
+#a_welcome:hover {
+  background-color: var(--primary_1);
+  color: var(--primary_2);
+}
+
+#a_music:hover {
+  background-color: var(--secondary_1);
+}
+
+#a_software:hover {
+  background-color: var(--primary_3);
+  color: var(--secondary_1);
+}
+
+#a_webdev:hover {
+  background-color: var(--accent_2);
+  color: var(--secondary_1);
+}
+
+#a_contact:hover {
+  background-color: var(--secondary_3);
 }
 
 #welcome-section {
@@ -60,31 +81,28 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 #welcome-section > h1 {
   font-size: 4em;
   font-style: italic;
+  color: #222;
 }
 
 .my_text {
   display: table;
   padding: 1em;
   background-color: var(--secondary_2);
-  /* height: 100px; */
-  /* line-height: 100px; */
   color: var(--secondary);
   font-size: 2em;
   text-align: center;
-  /* width: 400px; */
   box-shadow: 0.5em 0.5em 0 var(--accent_1);
   margin: 2em auto;
 }
 
 .projects_grid {
   display: grid;
-  /* background-color: brown; */
   padding: 1em;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 1em;
@@ -109,19 +127,38 @@ body {
   object-position: -150px -75px;
 }
 
-.music {
+#music {
   background-color: var(--secondary_1);
   padding-top: 1em;
-  height: 100vh;
+  min-height: 100vh;
 }
 #software {
   background-color: var(--primary_3);
   padding-top: 1em;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 #webdev {
   background-color: var(--accent_2);
   padding-top: 1em;
+  min-height: 100vh;
+}
+
+#contact {
+  background-color: var(--secondary_3);
+  padding-top: 1em;
   height: 100vh;
+}
+
+#contact a {
+  color: var(--accent_1);
+}
+@media (max-width: 450px) {
+  .projects_grid {
+    /* background-color: tan; */
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 2em;
+    grid-template-columns: 1fr;
+    padding: 1em;
+  }
 }
