@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clearly Broken Software</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
+        integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+    <style>
+        html {
+            /* CSS HSL */
+            --floral-white: hsla(46, 100%, 97%, 1);
+            --pale-silver: hsla(38, 16%, 76%, 1);
+            --black-olive: hsla(34, 6%, 24%, 1);
+            --eerie-black: hsla(40, 4%, 14%, 1);
+            --flame: hsla(17, 83%, 54%, 1);
+            font-size: 100%;
+            box-sizing: border-box;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            line-height: 1.3;
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+                "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+            background-color: var(--eerie-black);
+            color: var(--floral-white);
+        }
+
+        main {
+            width: 70%;
+            margin: 75px auto;
+        }
+
+        li {
+            font-size: 0.9em;
+        }
+
+        a {
+            color: var(--flame);
+        }
+
+        fieldset {
+            width: 50%;
+            margin: 0 auto;
+            padding: 1em;
+            background-color: var(--black-olive);
+        }
+
+        legend {
+            background-color: var(--pale-silver);
+            color: var(--eerie-black);
+            padding: 0em 1em 0.1em 1em;
+            border-radius: 0.2em;
+        }
+
+        input {
+            background-color: var(--pale-silver);
+        }
+
+        .nav-ul {
+            margin: 0;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: space-evenly;
+            align-content: stretch;
+        }
+
+        .nav-li {
+            margin: auto 0;
+            list-style: none;
+            font-size: 1.3em;
+        }
+
+        .nav-link {
+            color: var(--pale-silver);
+            text-decoration: none;
+        }
+
+        .nav-link:hover {
+            color: var(--flame);
+        }
+
+        .product {
+            margin: 3em;
+            padding: 10px;
+            border-radius: 0.1em;
+            background-color: var(--black-olive);
+        }
+
+        .product p {
+            margin: 1em;
+        }
+
+        .tagline {
+            color: var(--pale-silver);
+            font-variant-caps: petite-caps;
+            font-size: 1.1em;
+        }
+
+        .product_img {
+            width: 300px;
+            grid-area: image;
+        }
+
+        .product_list {
+            grid-area: list;
+        }
+
+        .product_grid_l {
+            /* background-color: red; */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+            justify-items: center;
+            align-items: center;
+            grid-template-areas: "image description""list list";
+            grid-column-gap: 1em;
+            padding: 0 1em 0 1em;
+        }
+
+        .product_grid_r {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+            justify-items: center;
+            align-items: center;
+            grid-template-areas: "description image""list list";
+            padding: 0 1em 0 1em;
+        }
+
+        #header-img-container {
+            height: 100%;
+            display: flex;
+        }
+
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 50px;
+            width: 100%;
+            background-color: var(--black-olive);
+        }
+
+        #header-img {
+            display: block;
+            margin: auto 2em;
+        }
+
+        #nav-bar {
+            background-color: red;
+            position: fixed;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            height: 50px;
+            background-color: var(--black-olive);
+        }
+
+        #description {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        #video_container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #submit {
+            padding: .4em;
+            background-color: var(--flame);
+            border-width: 0;
+        }
+
+        #submit:hover {
+            background-color: var(--pale-silver);
+        }
+
+        @media (min-width: 900px) {
+            #header {
+                height: 50px;
+            }
+
+            #nav-bar {
+                height: 50px;
+            }
+
+            .nav-ul {
+                flex-direction: row;
+            }
+
+            .product_grid_ {
+                grid-template-areas: "image description""list list";
+            }
+
+            main {
+                width: 60%;
+            }
+        }
+
+        @media (max-width: 899px) {
+            #header {
+                height: 100px;
+            }
+
+            #nav-bar {
+                height: 100px;
+            }
+
+            .nav-ul {
+                flex-direction: column;
+            }
+
+            main {
+                width: 80%;
+                margin: 100px auto;
+            }
+
+            .product_grid_l {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+                justify-items: center;
+                align-items: center;
+                grid-row-gap: 1em;
+                grid-template-areas:
+                    "image"
+                    "description"
+                    "list";
+            }
+
+            .product_grid_r {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+                justify-items: center;
+                align-items: center;
+                grid-row-gap: 1em;
+                grid-template-areas:
+                    "image"
+                    "description"
+                    "list";
+            }
+        }
+
+        #header-image {
+            object-fit: none;
+            overflow: hidden;
+            object-position: 0 -200px;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div id="header-img-container">
+            <img id="header-img" src="https://clearly-broken-software.github.io/images/clearlybroken.png" height="50px"
+                alt="logo">
+        </div>
+        <nav id="nav-bar">
+            <ul class="nav-ul">
+                <li class="nav-li"><a class="nav-link" href="#ninjas2">Ninjas2</a></li>
+                <li class="nav-li"><a class="nav-link" href="#drops">Drops</a></li>
+                <li class="nav-li"><a class="nav-link" href="#moar">MOAR!</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 id="title">Clearly Broken Software</h1>
+
+        <h2 class="tagline">Very Awesome Audio Software</h2>
+        <p id="description">I make audio plugins.
+        </p>
+
+        <div id="ninjas2" class="product">
+            <h2>Ninjas2
+                <i class="fa fa-linux"></i>
+                <i class="fa fa-windows"></i>
+                <i class="fa fa-apple"></i>
+            </h2>
+            <div class="product_grid_l">
+                <img class="product_img" src="https://clearly-broken-software.github.io/images/Ninjas2.png"
+                    alt="Ninjas2 screenshot">
+                <p class="product_description">
+                    <span class="tagline">Ninjas Is Not Just Another Slicer.</span> I couldn't find a linux sample
+                    slicer plugin, so I made one.
+                <ul class="product_list">
+                    <li>load audio samples supported by <a href="http://www.mega-nerd.com/libsndfile/"
+                            target="_blanc">libsndfile</a> (in practice this means just about anything)</li>
+                    <li>up to 128 slices</li>
+                    <li>each slice is automatically mapped to a midi note, starting at C4 (note 60) and up and wraps
+                        around when more is needed</li>
+                    <li>ADSR and Play direction for each slice</li>
+                    <li>zoomable and scrollable waveform display</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+
+        <div id="drops" class="product">
+            <h2>Drops
+                <i class="fa fa-linux"></i>
+            </h2>
+            <div class="product_grid_r">
+                <p class="product_description"><span class="tagline">Drops Really Only Plays Samples.</span> I wanted an
+                    easy sample player plugin that had just the right amount of options. Luckily <a
+                        href="https://sfz.tools/sfizz/">sfizz</a> came out at just the right moment,
+                    so I could use that as the sound engine for this plugin. Many thanks for all the help I got from the
+                    sfizz team.
+                </p>
+                <img class="product_img" src="https://clearly-broken-software.github.io/images/Drops1.0beta.png"
+                    alt="Drops screenshot">
+                <ul class="product_list">
+                    <li>single sample old skool sample player</li>
+                    <li>load audio samples supported by <a href="http://www.mega-nerd.com/libsndfile/"
+                            target="_blanc">libsndfile</a></li>
+                    <li>play from disk</li>
+                    <li>zoomable and scrollable waveform display</li>
+                    <li>edit points for sample start, end and loop points</li>
+                    <li>several play direction and loop moded</li>
+                    <li>several pitch options</li>
+                    <li>ADSR for amp,filter and pitch</li>
+                    <li>LFO for amp, filter and pitch</li>
+                    <li>Low pass, high pass and bandpass filter, with resonance.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="moar" class="product">
+            <h2>but wait ... there's more</h2>
+            <p> Well, there's more to come. On my ever increasing todo list is:
+            <ul>
+                <li>Boomer, a midi-drum-loop-sequencer-plugin
+                </li>
+                <li>Punch, a punchy compressor with character
+                </li>
+                <li>Soundboard, hit a pad and it plays a sample</li>
+                <li>Nanoinvader, play space invaders in your host </li>
+                <li>Uprising, a transition synth</li>
+            </ul>
+            </p>
+        </div>
+        <div id="video_container" class="product">
+            <p>It seems people actually use my plugins. That's pretty cool.</p>
+            <iframe id="video" height="315" src="https://www.youtube.com/embed/E02cR5C6MKI" frameborder="0"
+                allowfullscreen></iframe>
+        </div>
+        <form id="form" action="https://www.freecodecamp.com/email-submit">
+            <fieldset>
+                <legend>sign up for our newsletter</legend>
+                <input name="email" id="email" type="email" placeholder="Enter your email address" required />
+                <input name="submit" type="submit" id="submit" value="Subscribe" />
+
+            </fieldset>
+        </form>
+    </main>
+</body>
+
+</html>
