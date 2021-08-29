@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeCodeCamp Survey Form</title>
+    <style>
+        html {
+            --shimmering-blush: hsla(349, 53%, 68%, 1);
+            --old-lavender: hsla(316, 5%, 25%, 1);
+            --periwinkle-crayola: hsla(218, 95%, 95%, 1);
+            --dark-sienna: hsla(9, 57%, 15%, 1);
+            --purple-navy: hsla(230, 26%, 33%, 1);
+            --survey-back: hsla(230, 26%, 33%, 0.5);
+        }
+
+        body {
+            position: relative;
+            margin: 0px;
+            padding: 5px;
+            font-size: 1em;
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+                "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: var(--dark-sienna);
+            background-size: 100%;
+        }
+
+        body::after {
+            /*background-color: var(--dark-sienna);*/
+            background-image: url("https://i.postimg.cc/prD2ZMM9/rick.png");
+            background-attachment: fixed;
+            background-size: 100%;
+            content: "";
+            opacity: .3;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;
+        }
+
+        fieldset {
+            display: table;
+            background-color: var(--shimmering-blush);
+            border-style: none;
+            border-style: none;
+            margin: 25px auto 25px 0;
+            padding: 5px 5px 15px 15px;
+            border-radius: 5px;
+        }
+
+        legend {
+            color: var(--periwinkle-crayola);
+            background-color: var(--old-lavender);
+            border-style: none;
+            border-radius: 5px;
+            margin-left: 25px;
+            margin-bottom: 10px;
+            padding: 5px 10px 10px 10px;
+            box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+        }
+
+        input {
+            margin: 5px;
+        }
+
+        .naw {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            justify-items: start;
+            align-items: baseline;
+            background-color: var(--shimmering-blush);
+            padding: 15px;
+            margin: 15px;
+            border-radius: 10px;
+        }
+
+        #title {
+            display: table;
+            color: var(--periwinkle-crayola);
+            font-size: 2em;
+            text-align: center;
+            margin: 25px;
+            border-radius: 10px;
+            padding: 10px 25px;
+            margin: 25px auto;
+            background-color: var(--purple-navy);
+        }
+
+        #description {
+            display: table;
+            color: var(--periwinkle-crayola);
+            background-color: var(--purple-navy);
+            margin: 50px auto 50px auto;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            box-shadow: 3px 3px 1px hsla(9, 57%, 15%, .5);
+
+        }
+
+        #survey-form {
+            display: table;
+            background-color: var(--survey-back);
+            padding-left: 25px;
+            margin: 0 auto;
+            padding: 15px 15px 15px 15px;
+            border-radius: 10px;
+        }
+
+        #drop_down {
+            background-color: var(--shimmering-blush);
+            padding: 15px;
+            margin-top: 2em;
+            border-radius: 5px;
+        }
+
+        #note {
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        #submit {
+            font-size: 1.5em;
+            padding: 5px 10px 5px 10px;
+            margin-top: 15px;
+            background-color: var(--shimmering-blush);
+            border-radius: 5px;
+        }
+
+        #lyrics {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="title">The Big Rick Astley Survey</h1>
+    <p id="description">Please be as cool as Rick and fill in this survey.</p>
+    <form id="survey-form" action="">
+        <div class="naw">
+            <label id="name-label">Name</label>
+            <input id="name" type="text" placeholder="your name" required>
+            <label id="email-label">Email</label>
+            <input id="email" type="email" placeholder="your email" required>
+            <label id="number-label">Age</label>
+            <input id="number" type="number" placeholder="69" min="0" max="99" required>
+        </div>
+        <div id="drop_down">
+            <label id="dropdown-label">Select which of the following things Rick Astley is never gonna
+                do:</label>
+            <select id="dropdown">
+                <option value="dropdown:none"> -- select option --</option>
+                <option value="dropdown:give_you_up">give you up</option>
+                <option value="dropdown:let_you_down">let you down</option>
+                <option value="dropdown:run_around_and_desert_you">run around and desert you</option>
+                <option value="dropdown:pineapple">put pineapple on a pizza</option>
+            </select>
+        </div>
+
+        <fieldset>
+            <legend id="checkboxes">What do you think Rick Astley will never do either:&nbsp;
+            </legend>
+            <div id="note">note: multiple answers possible</div><br>
+            <label for="make_you_cry">
+                <input id="make_you_cry" type="checkbox" name="rick_actions" value="make_you_cry">make you cry<br>
+            </label>
+            <label for="say_goodbye">
+                <input id="say_goodbye" type="checkbox" name="rick_actions" value="say_goodbye">say goodbye<br>
+            </label>
+            <label for="tell_a_lie">
+                <input id="tell_a_lie" type="checkbox" name="rick_actions" value="tell_a_lie">tell a lie and hurt
+                you<br>
+            </label>
+            <label for="all_of_the_above">
+                <input id="all_of_the_above" value="all_of_the_above" type="checkbox" name="rick_actions">all of the
+                above
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>Fill in the following lyrics:&nbsp;</legend>
+            <div id="lyrics"> we are no stranger to ...</div>
+            <label for="hunger">
+                <input id="hunger" type="radio" value="hunger" name="lyrics_completion">hunger
+            </label>
+            <br>
+            <label for="qfd">
+                <input id="qft" type="radio" value="qft" name="lyrics_completion">quantum field theory
+            </label>
+            <br>
+            <label for="love">
+                <input id="love" type="radio" value="love" name="lyrics_completion">love
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>You can leave a message explaining why Rick Astley is so cool.</legend>
+            <textarea id="explain_why" rows="4" cols="50" placeholder="You know the rules..."></textarea>
+        </fieldset>
+        <button id="submit" class="submit">Submit</button>
+
+    </form>
+</body>
+
+</html>
